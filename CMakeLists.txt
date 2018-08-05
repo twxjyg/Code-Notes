@@ -16,3 +16,10 @@ add_executable(curve_fitting
 target_link_libraries(curve_fitting
     ${ALGLIB_LIBRARIES}
 )
+
+add_executable(qp_demo
+    src/qp_demo.cpp
+)
+target_link_libraries(qp_demo
+    ${ALGLIB_LIBRARIES}
+)
