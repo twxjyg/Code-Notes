@@ -5,7 +5,7 @@
 
 using namespace alglib;
 
-main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
     // target optimization function: F(x, y) = x^2 + y^2 -6*x -4*y,
     // subject to bound constraints 0 <= x <= 2.5, 0<= y <= 2.5
