@@ -29,3 +29,7 @@ add_executable(curve_fitting_eigen
     src/curve_fitting_eigen.cpp
     src/geometry_types.h
 )
+
+add_executable(curve_crossing
+    src/curve_crossing.cpp
+)

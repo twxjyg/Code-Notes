@@ -2,7 +2,13 @@
 #include "geometry_types.h"
 #include <vector>
 #include <iostream>
+ 
 
+// A * x = b
+// A is filled with x_values
+// b is filled with y_values
+// x is our target [a_0, a_1, a_3, a_4]'
+// householderQr this can help us sovle the matrix
 std::vector<double> PolynomialFit(const std::vector<geometry_types::Pose2D> &data, const int order)
 {
 
