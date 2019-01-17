@@ -33,3 +33,11 @@ add_executable(curve_fitting_eigen
 add_executable(curve_crossing
     src/curve_crossing.cpp
 )
+
+add_executable(simple_path_search
+    src/simple_path_search.cpp
+)
+
+add_executable(to_left_test
+    src/to_left_test.cpp
+)

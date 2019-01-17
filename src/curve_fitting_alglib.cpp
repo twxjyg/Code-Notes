@@ -6,6 +6,46 @@
 #include <vector>
 
 using namespace alglib;
+using geometry_types::Pose2D;
+
+std::vector<Pose2D> AlglibSmooth(const std::vector<Pose2D> &data)
+{
+    using namespace alglib;
+    const std::size_t n = data.size();
+    std::vector<double> raw_x(n);
+    std::vector<double> raw_y(n);
+    std::vector<double> raw_theta(n);
+    for (unsigned int i = 0; i < n; i++)
+    {
+        raw_x[i] = data[i].x;
+        raw_y[i] = data[i].y;
+        raw_theta[i] = data[i].theta;
+    }
+    ae_int_t info;
+    double v;
+    spline1dinterpolant s_x_y;
+    spline1dinterpolant s_x_theta;
+    spline1dfitreport rep_x_y;
+    spline1dfitreport rep_x_theta;
+    double rho = -5.0;
+    const auto ae_int_n = static_cast<ae_int_t>(n);
+    real_1d_array x, y, theta;
+    x.setcontent(ae_int_n, raw_x.data());
+    y.setcontent(ae_int_n, raw_y.data());
+    theta.setcontent(ae_int_n, raw_theta.data());
+    spline1dfitpenalized(x, y, 50, rho, info, s_x_y, rep_x_y);
+    spline1dfitpenalized(x, theta, 50, rho, info, s_x_theta, rep_x_theta);
+    std::vector<Pose2D> smoothed_data;
+    smoothed_data.resize(n);
+    for (unsigned int i = 0; i < n; i++)
+    {
+        smoothed_data[i].x = data[i].x;
+        smoothed_data[i].y = spline1dcalc(s_x_y, data[i].x);
+        smoothed_data[i].theta = spline1dcalc(s_x_theta, data[i].x);
+    }
+    return smoothed_data;
+}
+
 std::vector<double> PolynomialFit(const std::vector<geometry_types::Pose2D> &data, const int order)
 {
     real_1d_array x;
@@ -43,7 +83,7 @@ std::vector<double> PolynomialFit(const std::vector<geometry_types::Pose2D> &dat
     for (unsigned int i = 0; i < order; i++)
     {
         ret_coefs[i] = coefs[i];
-        formular_vis += std::to_string(coefs[i]) + " * x{" + std::to_string(i) + "}" + (i == order-1 ? "":" + "); 
+        formular_vis += std::to_string(coefs[i]) + " * x{" + std::to_string(i) + "}" + (i == order-1 ? "":" + ");
     }
     std::cout << formular_vis << std::endl;
     ret_coefs.push_back(data.front().x);
