@@ -41,3 +41,15 @@ add_executable(simple_path_search
 add_executable(to_left_test
     src/to_left_test.cpp
 )
+
+add_executable(rvalue
+    src/rvalue.cpp
+)
+
+add_executable(quick_sort
+    src/quick_sort.cpp
+)
+
+add_executable(double_bi_search
+    src/double_bi_search.cpp
+)
