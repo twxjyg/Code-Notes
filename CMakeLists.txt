@@ -4,6 +4,8 @@ project(alglib_study)
 
 set(CMAKE_BUILD_TYPE Debug)
 
+set (CMAKE_CXX_STANDARD 14)
+
 # Required and optional packages
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
 
@@ -52,4 +54,8 @@ add_executable(quick_sort
 
 add_executable(double_bi_search
     src/double_bi_search.cpp
+)
+
+add_executable(second_short_path
+    src/second_short_path.cpp
 )
