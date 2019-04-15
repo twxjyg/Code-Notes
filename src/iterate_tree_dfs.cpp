@@ -21,13 +21,16 @@ std::shared_ptr<Node<int>> BuildATree()
     root->childs.push_back(BuildANode(1));
     root->childs.push_back(BuildANode(2));
     root->childs.push_back(BuildANode(3));
-    std::shared_ptr<Node<int>> item = root->childs[2];
-    item->childs.push_back(BuildANode(11));
-    item->childs.push_back(BuildANode(12));
-    item = item->childs[1];
-    item->childs.push_back(BuildANode(22));
-    item->childs.push_back(BuildANode(21));
-    item->childs.push_back(BuildANode(22));
+
+    root->childs[2]->childs.push_back(BuildANode(11));
+    root->childs[2]->childs.push_back(BuildANode(12));
+
+    root->childs[1]->childs.push_back(BuildANode(121));
+    root->childs[1]->childs.push_back(BuildANode(122));
+
+    root->childs[1]->childs[1]->childs.push_back(BuildANode(22));
+    root->childs[1]->childs[1]->childs.push_back(BuildANode(21));
+    root->childs[1]->childs[1]->childs.push_back(BuildANode(22));
     return root;
 }
 int main(int argc, char *argv[])
