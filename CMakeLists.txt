@@ -67,3 +67,7 @@ add_executable(second_short_path
 add_executable(iterate_tree_dfs
     src/iterate_tree_dfs.cpp
 )
+
+add_executable(hammer_of_god
+    src/hammer_of_god.cpp
+)
