@@ -14,7 +14,7 @@
         return name; \
     }
 
-#define AUTO_SET_NAME(type) SET_NAME(type, "" #type "")
+#define AUTO_SET_NAME(type) SET_NAME(type, #type)
 
 SET_GETTER(GetTypeName)
 
