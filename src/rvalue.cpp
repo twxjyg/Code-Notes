@@ -35,6 +35,14 @@ void Process(Data&& d) {
 void Process(const Data& d) {
     std::cout << "Process data by const lvalue ref version" << std::endl;
 }
+void Process(Data& d) {
+    std::cout << "Process data by lvalue ref version" << std::endl;
+}
+
+template <class T>
+void Forward(T&& t) {
+    Process(static_cast<T&&>(t));
+}
 
 int main(int argc, char const *argv[])
 {
@@ -57,6 +65,12 @@ int main(int argc, char const *argv[])
     Process(Data(10));
     Process(std::move(data_2));
     Process(Builder());
+    std::cout << "5. perfect forward" << std::endl;
+    const Data& data_3 = data_2;
+    Forward(data_3);
+    Forward(data_2);
+    Forward(Data(10));
+    Forward(std::move(data_2));
 
     return 0;
 }
