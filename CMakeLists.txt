@@ -80,3 +80,19 @@ add_executable(dfs_traversing
 add_executable(dfs_all_path
     src/dfs_all_path.cpp
 )
+
+add_executable(is_binary_tree_symmetrical
+    src/is_binary_tree_symmetrical.cpp
+)
+
+add_executable(max_sum_of_sub_array
+    src/max_sum_of_sub_array.cpp
+)
+
+add_executable(matrix_all_path
+    src/matrix_all_path.cpp
+)
+
+add_executable(matrix_min_sum_path
+    src/matrix_min_sum_path.cpp
+)
