@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 
 #define SET_GETTER(FunctionName) \
@@ -39,5 +40,6 @@ int main(int argc, char** argv) {
     std::cout << GetTypeName((int16_t)10) << std::endl;
     std::cout << GetTypeName(std::vector<int>{10}) << std::endl;
     std::cout << GetTypeName(std::vector<int>{10}.size()) << std::endl;
+    std::cout << __FILE__ << std::endl;
     return 0;
 }

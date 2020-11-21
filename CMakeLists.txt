@@ -64,10 +64,19 @@ add_executable(second_short_path
 #    src/matrix.cpp
 #)
 
-add_executable(iterate_tree_dfs
-    src/iterate_tree_dfs.cpp
-)
 
 add_executable(hammer_of_god
     src/hammer_of_god.cpp
+)
+
+add_executable(bfs_traversing
+    src/bfs_traversing.cpp
+)
+
+add_executable(dfs_traversing
+    src/dfs_traversing.cpp
+)
+
+add_executable(dfs_all_path
+    src/dfs_all_path.cpp
 )
