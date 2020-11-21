@@ -9,6 +9,7 @@ using namespace print_utils;
 
 std::vector<int> path;
 std::vector<std::vector<int>> all_path;
+int tree_height = 0;
 
 void TraverseDFS(BinaryTreeNode<int> *root)
 {
@@ -22,6 +23,7 @@ void TraverseDFS(BinaryTreeNode<int> *root)
     {
         all_path.push_back(path);
         std::cout << path << std::endl;
+        tree_height = std::max(static_cast<int>(path.size()), tree_height);
     }
 
     TraverseDFS(root->left);
@@ -46,6 +48,8 @@ int main(int argc, char const *argv[])
     root->left->right = new BinaryTreeNode<int>(4);
 
     TraverseDFS(root);
+
+    std::cout << tree_height << std::endl;
 
     return 0;
 }
