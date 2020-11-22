@@ -96,3 +96,7 @@ add_executable(matrix_all_path
 add_executable(matrix_min_sum_path
     src/matrix_min_sum_path.cpp
 )
+
+add_executable(string_to_possible_ip
+    src/string_to_possible_ip.cpp
+)
