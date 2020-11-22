@@ -104,3 +104,7 @@ add_executable(string_to_possible_ip
 add_executable(reverse_link_list
     src/reverse_link_list.cpp
 )
+
+add_executable(reconstruct_binary_tree
+    src/reconstruct_binary_tree.cpp
+)
