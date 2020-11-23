@@ -24,11 +24,6 @@ BinaryTreeNode<T> *ReconstructBinaryTree(const std::vector<T> &pre_order, const 
     return root;
 }
 
-template <typename T>
-std::vector<T> BinaryTreeToVector(BinaryTreeNode<T> *root)
-{
-}
-
 int main(int argc, char const *argv[])
 {
     std::vector<int> pre_order = {1, 2, 3, 4, 5, 6, 7};
