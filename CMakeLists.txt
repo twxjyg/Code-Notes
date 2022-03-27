@@ -108,3 +108,7 @@ add_executable(reverse_link_list
 add_executable(reconstruct_binary_tree
     src/reconstruct_binary_tree.cpp
 )
+
+add_executable(bitwise_operators
+    src/bitwise_operators.cpp
+)
