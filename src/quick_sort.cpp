@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include "print_utils.h"
 
 template <typename T>
 int Partition(std::vector<T> *collection, int lowest, int highest)
@@ -55,20 +56,14 @@ void QuickSort(std::vector<T> *collection)
     QuickSort(collection, 0, collection->size() - 1);
 }
 
-template <typename T>
-void PrintVector(const std::vector<T> &data)
-{
-    for (auto item : data)
-    {
-        std::cout << item << std::endl;
-    }
-}
+
 int main(int argc, char const *argv[])
 {
+    using namespace print_utils;
     std::vector<int> data = {10, 2, 5, 2, 4, 88, 23, 34, 11, 54, 222, 3};
     std::vector<int> collection = data;
-    std::cout << "Quick Sort:" << std::endl;
+    std::cout << "Quick Sort:" << data << std::endl;
     QuickSort(&collection);
-    PrintVector(collection);
+    std::cout << "Result:" << collection << std::endl;
     return 0;
 }
